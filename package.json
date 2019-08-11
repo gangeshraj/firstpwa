@@ -1,0 +1,20 @@
+{
+  "name": "first-pwa",
+  "version": "1.0.0",
+  "description": "A PWA app trying to build a simple Instagram clone Some images and concepts I foolowed from PWA course I took",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "keywords": [
+    "pwa",
+    "progressive",
+    "web",
+    "app"
+  ],
+  "author": "Gangesh Raj",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
