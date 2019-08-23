@@ -1,13 +1,14 @@
 importScripts('/src/js/idb.js');
 importScripts('/src/js/utility.js');
 
-var CACHE_STATIC_NAME = 'static-v24';
-var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+var CACHE_STATIC_NAME = 'static-v40';
+var CACHE_DYNAMIC_NAME = 'dynamic-v3';
 var STATIC_FILES = [
   '/',
   '/index.html',
   '/offline.html',
   '/src/js/app.js',
+  '/src/js/utility.js',
   '/src/js/feed.js',
   '/src/js/idb.js',
   '/src/js/promise.js',
@@ -189,18 +190,17 @@ self.addEventListener('sync', function(event) {
       readAllData('sync-posts')
         .then(function(data) {
           for (var dt of data) {
+            var postData = new FormData();
+            postData.append('id', dt.id);
+            postData.append('title', dt.title);
+            postData.append('location', dt.location);
+            postData.append('rawLocationLat', dt.rawLocation.lat);
+            postData.append('rawLocationLng', dt.rawLocation.lng);
+            postData.append('file', dt.picture, dt.id + '.png');
+
             fetch('https://us-central1-first-pwa-f2d11.cloudfunctions.net/storePostData', {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify({
-                id: dt.id,
-                title: dt.title,
-                location: dt.location,
-                image: 'https://firebasestorage.googleapis.com/v0/b/first-pwa-f2d11.appspot.com/o/sf-boat.jpg?alt=media&token=64526760-69ee-4a52-9629-0f9d46ddce2e'
-              })
+              body: postData
             })
               .then(function(res) {
                 console.log('Sent data', res);
