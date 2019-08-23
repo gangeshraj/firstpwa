@@ -125,7 +125,7 @@ if ('indexedDB' in window) {
 }
 
 function sendData() {
-  fetch('https://first-pwa-f2d11.firebaseio.com/posts.json', {
+  fetch('https://us-central1-first-pwa-f2d11.cloudfunctions.net/storePostData', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
