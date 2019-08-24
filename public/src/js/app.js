@@ -8,7 +8,7 @@ if (!window.Promise) {
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/sw.js')
+    .register('/service-worker.js')
     .then(function () {
       console.log('Service worker registered!');
     })
@@ -63,7 +63,7 @@ function configurePushSub() {
     .then(function(sub) {
       if (sub === null) {
         // Create a new subscription
-        var vapidPublicKey = 'BPYjbhRsWjymfDqTzF5YvJjPhWhSfliuM9sRlDdbCuYl_nje6QD6WuxcqkEUNud2qqbJ7VeQv0fPieNc5v0Kz7s';
+        var vapidPublicKey = 'BKapuZ3XLgt9UZhuEkodCrtnfBo9Smo-w1YXCIH8YidjHOFAU6XHpEnXefbuYslZY9vtlEnOAmU7Mc-kWh4gfmE';
         var convertedVapidPublicKey = urlBase64ToUint8Array(vapidPublicKey);
         return reg.pushManager.subscribe({
           userVisibleOnly: true,
@@ -74,7 +74,7 @@ function configurePushSub() {
       }
     })
     .then(function(newSub) {
-      return fetch('https://first-pwa-f2d11.firebaseio.com/subscriptions.json', {
+      return fetch('https://pwagram-99adf.firebaseio.com/subscriptions.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

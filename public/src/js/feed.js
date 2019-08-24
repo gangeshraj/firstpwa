@@ -28,7 +28,7 @@ locationBtn.addEventListener('click', function (event) {
     locationBtn.style.display = 'inline';
     locationLoader.style.display = 'none';
     fetchedLocation = {lat: position.coords.latitude, lng: 0};
-    locationInput.value = 'In Bangalore';
+    locationInput.value = 'In Munich';
     document.querySelector('#manual-location').classList.add('is-focused');
   }, function (err) {
     console.log(err);
@@ -201,7 +201,7 @@ function updateUI(data) {
   }
 }
 
-var url = 'https://first-pwa-f2d11.firebaseio.com/posts.json';
+var url = 'https://pwagram-99adf.firebaseio.com/posts.json';
 var networkDataReceived = false;
 
 fetch(url)

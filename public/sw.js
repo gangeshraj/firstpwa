@@ -1,3 +1,6 @@
+//OUR OWN SERVICE WORKER FILE IS NOT USED BUT INSTEAD worker box set up
+//and SERVICE WORKERS HOWEVER KEPT IT FOR REFRERENCE
+
 importScripts('/src/js/idb.js');
 importScripts('/src/js/utility.js');
 
