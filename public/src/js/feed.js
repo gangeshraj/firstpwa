@@ -201,7 +201,7 @@ function updateUI(data) {
   }
 }
 
-var url = 'https://pwagram-99adf.firebaseio.com/posts.json';
+var url = 'https://first-pwa-f2d11.firebaseio.com/posts.json';
 var networkDataReceived = false;
 
 fetch(url)

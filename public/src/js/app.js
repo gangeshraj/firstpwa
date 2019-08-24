@@ -74,7 +74,7 @@ function configurePushSub() {
       }
     })
     .then(function(newSub) {
-      return fetch('https://pwagram-99adf.firebaseio.com/subscriptions.json', {
+      return fetch('https://first-pwa-f2d11.firebaseio.com/subscriptions.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

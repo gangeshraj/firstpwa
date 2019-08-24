@@ -23,7 +23,7 @@ workboxSW.router.registerRoute(/.*(?:firebasestorage\.googleapis)\.com.*$/, work
   cacheName: 'post-images'
 }));
 
-workboxSW.router.registerRoute('https://pwagram-99adf.firebaseio.com/posts.json', function(args) {
+workboxSW.router.registerRoute('https://first-pwa-f2d11.firebaseio.com/posts.json', function(args) {
   return fetch(args.event.request)
     .then(function (res) {
       var clonedRes = res.clone();
@@ -84,7 +84,7 @@ self.addEventListener('sync', function(event) {
             postData.append('rawLocationLng', dt.rawLocation.lng);
             postData.append('file', dt.picture, dt.id + '.png');
 
-            fetch('https://us-central1-pwagram-99adf.cloudfunctions.net/storePostData', {
+            fetch('https://us-central1-first-pwa-f2d11.cloudfunctions.net/storePostData', {
               method: 'POST',
               body: postData
             })
