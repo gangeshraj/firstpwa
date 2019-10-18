@@ -28,7 +28,7 @@ locationBtn.addEventListener('click', function (event) {
     locationBtn.style.display = 'inline';
     locationLoader.style.display = 'none';
     fetchedLocation = {lat: position.coords.latitude, lng: 0};
-    locationInput.value = 'In Munich';
+    locationInput.value = 'In Bangalore';
     document.querySelector('#manual-location').classList.add('is-focused');
   }, function (err) {
     console.log(err);
